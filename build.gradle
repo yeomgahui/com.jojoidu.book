@@ -37,7 +37,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group 'com.jojoidu.book'
 version '1.0-SNAPSHOT'
-sourceCompatibility = 1.8
+sourceCompatibility = '12'
 
 repositories {
     mavenCentral()
