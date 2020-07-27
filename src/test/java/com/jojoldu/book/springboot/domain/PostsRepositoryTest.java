@@ -16,7 +16,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PostRepositoryTest {
+public class PostsRepositoryTest {
     @Autowired
     PostsRepository postsRepository;
 
@@ -41,6 +41,7 @@ public class PostRepositoryTest {
         assertThat(posts.getTitle()).isEqualTo(title);
         assertThat(posts.getContent()).isEqualTo(content);
     }
+
     @Test
     public void BaseTimeEntity_enregist(){
         LocalDateTime now = LocalDateTime.of(2019,6,4,0,0,0);

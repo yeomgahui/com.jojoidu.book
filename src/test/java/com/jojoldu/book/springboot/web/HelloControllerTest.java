@@ -11,16 +11,15 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.hamcrest.Matchers.is;
 
-@RunWith(SpringRunner.class)
-@WebMvcTest
+@RunWith(SpringRunner.class) // 1. 테스트를 진행할 때 jUIT에 내장된 실행자외에 다른 실행자를 실행시킨다. 여기서는 SpringRunner라는 스프링 실행자를 이용한다. 즉, 스프링 부트 테스트와 JUIT사이에 연결자 역할을 한다.
+@WebMvcTest     //2. 여러 스프링 테스트 어노테이션 중, web에 집중할 수 있는 어노테이션, 선언할 경우, Controller, ControllerAdvice등 사용가능
 public class HelloControllerTest {
-    @Autowired
-    private MockMvc mvc;
+    @Autowired //3. 스프링이 관리하는 bean주입
+    private MockMvc mvc; //4. Web API 테스트 할때 사용 스프링 MVC테스트의 시작점,
 
     @Test
     public void hello_return() throws Exception{
         String hello ="hello";
-
         mvc.perform(get("/hello")).andExpect(status().isOk()).andExpect(content().string(hello));
     }
 
@@ -35,6 +34,7 @@ public class HelloControllerTest {
                  .andExpect(jsonPath("$.name", is(name)))
                  .andExpect(jsonPath("$.amount", is(amount)));
     }
+    //
 
 
 }

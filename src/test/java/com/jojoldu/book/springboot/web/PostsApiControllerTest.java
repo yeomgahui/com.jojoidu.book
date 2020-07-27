@@ -64,9 +64,9 @@ public class PostsApiControllerTest {
     @Test
     public void post_update() throws Exception{
         Posts savedPosts = postsRepository.save(Posts.builder()
-        .title("title")
-        .content("content")
-        .author("autho")
+        .title("dfsfsd")
+        .content("book")
+        .author("gahui")
         .build());
         Long updateId = savedPosts.getId();
         String expectedTitle = "title2";
