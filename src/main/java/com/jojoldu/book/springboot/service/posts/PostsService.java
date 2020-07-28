@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Service
 public class PostsService {
-
+//@Autowired가 없는 이유? 생성자로 주입받는 방식을 권장하기 때문, 그러면 생성자는? RequiredArgsConstructor로 해결
     private final PostsRepository postsRepository;
 
     @Transactional
@@ -42,6 +42,12 @@ public class PostsService {
         return postsRepository.findAllDesc().stream()
                 .map(PostsListResponseDto::new)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public void delete(Long id){
+        Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id="+id));
+        postsRepository.delete(posts);
     }
 
 }

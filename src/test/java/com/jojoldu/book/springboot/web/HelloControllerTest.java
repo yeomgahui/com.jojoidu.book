@@ -34,7 +34,12 @@ public class HelloControllerTest {
                  .andExpect(jsonPath("$.name", is(name)))
                  .andExpect(jsonPath("$.amount", is(amount)));
     }
-    //
+    //param은 api테스트할 때 사용될 요청 파라미터를 설정한다.
+    //단 값은 String만 가능
+    //숫자/날짜등의 데이터 등록시 문자열로 변경해야만 한다.
+    //jsonPath - JSON응답값을 필드별로 검증할 수 있는 메소드
+    //$를 기준으로 필드명 명시
+    //$.name $.amount로 검증
 
 
 }
