@@ -30,13 +30,13 @@ public class OAuthAttributes {
                                      Map<String,Object> attributes){
         return ofGoogle(userNameAttributeName, attributes);
     }
-    private static OAuthAttributes ofGoogle(String userNameAttribueName, Map<String,Object> attributes){
+    private static OAuthAttributes ofGoogle(String userNameAttributeName, Map<String,Object> attributes){
         return OAuthAttributes.builder()
                 .name((String) attributes.get("name"))
                 .email((String) attributes.get("email"))
                 .picture((String) attributes.get("picture"))
                 .attributes(attributes)
-                .nameAttributeKey(userNameAttribueName)
+                .nameAttributeKey(userNameAttributeName)
                 .build();
     }
     public User toEntity(){
